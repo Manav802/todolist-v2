@@ -8,6 +8,6 @@ module.exports.getDate=function ()
 }
 
 module.exports.getDay=function ()
-{k
+{
 	return today.toLocaleDateString("en-US", options.weekday); 
 }

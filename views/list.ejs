@@ -1,0 +1,32 @@
+<!-- This is the boilerplate for every HTML page we will create in this website please use the same layout to avoid any discrepancies and confusions -->
+<!doctype html>
+<html lang="en">
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" type="text/css" href="css/styles.css">
+
+  <title>What to do today!</title>
+</head>
+<body>
+  <div class="box" id="heading"><h1><%=listTitle%></h1>
+  </div>
+  <div class="box">
+    <% for (let i = 0; i < newListItems.length; i++) { -%>
+    <div class="item">
+      <input type="checkbox">
+      <p><%=newListItems[i]%></p>
+    </div>
+    <% } -%>
+    <form method="POST" action="/" class="item" >
+      <input type="text" name="newItem" placeholder="New Items">
+      <button type="submit" name="list" value="<%=listTitle%>">+</button>
+    </form>
+  </div>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+</body>
+</html>

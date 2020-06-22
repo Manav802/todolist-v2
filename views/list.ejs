@@ -1,5 +1,5 @@
 <!-- This is the boilerplate for every HTML page we will create in this website please use the same layout to avoid any discrepancies and confusions -->
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <!-- Required meta tags -->
@@ -11,22 +11,24 @@
 
   <title>What to do today!</title>
 </head>
-<body>
+<body value="">
   <div class="box" id="heading"><h1><%=listTitle%></h1>
   </div>
   <div class="box">
-    <% for (let i = 0; i < newListItems.length; i++) { -%>
+    <%newListItems.forEach(function(item){%>
+    <form method="POST" action="/delete">
     <div class="item">
-      <input type="checkbox">
-      <p><%=newListItems[i]%></p>
+      <input name="checkStatus" type="checkbox" value="<%=item._id%>" onChange="this.form.submit()">
+      <p><%=item.name%></p>
+      <input type="hidden" name="listName" value="<%=listTitle%>">
     </div>
-    <% } -%>
+    </form>
+    <%});%>
     <form method="POST" action="/" class="item" >
       <input type="text" name="newItem" placeholder="New Items">
       <button type="submit" name="list" value="<%=listTitle%>">+</button>
     </form>
   </div>
   <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 </body>
 </html>

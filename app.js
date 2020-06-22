@@ -3,7 +3,8 @@ app=exp(),
 bp=require("body-parser"),
 https=require("https"),
 date=require(__dirname+"/date.js"),
-mongoose=require("mongoose");
+mongoose=require("mongoose"),
+_=require("lodash");
 
 app.set("view engine","ejs");
 app.use(bp.urlencoded({extended:true}));
@@ -50,7 +51,7 @@ app.get("/",function(req,res)
 });
 
 app.get("/:pageName",function(req,res) {
-    const pname=req.params.pageName;
+    const pname=_.capitalize(req.params.pageName);
 	List.findOne({name:pname},function(err,foundList) {
 		if(!err)
 		{
